@@ -1,5 +1,7 @@
 package com.commit.campus.cicheck;
 
 public class check {
-    // good
+    public void check() {
+        System.out.println("ㅋㅋ");
+    }
 }
