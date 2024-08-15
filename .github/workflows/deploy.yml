@@ -42,8 +42,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "build/libs/*.jar"
-          target: "/home/ubuntu/Camp_Reserve"
+          source: "*.jar"
+          target: "/home/ubuntu"
           debug: true
 
       - name: Deploy to EC2
