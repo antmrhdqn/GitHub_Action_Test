@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class TestController {
     @PostMapping("test")
     public void Test() {
-        log.info("성공");
+        log.info("성공임");
     }
 }
