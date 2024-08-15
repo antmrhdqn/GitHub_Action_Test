@@ -53,5 +53,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/Camp_Reserve
+            cd /home/ubuntu
             ./deploy.sh
