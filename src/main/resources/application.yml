@@ -1,0 +1,82 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: Camp_Reserve
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: mysql
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL}
+    hikari:
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ${KAKAO_CLIENT_ID}
+            client-secret: ${KAKAO_CLIENT_SECRET}
+            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+            authorization-grant-type: authorization_code
+            client-authentication-method: POST
+            client-name: Kakao
+            scope:
+              - profile_nickname
+              - account_email
+          cognito:
+            clientId: ${COGNITO_CLIENT_ID}
+            clientSecret: ${COGNITO_CLIENT_SECRET}
+            scope: openid, email
+            redirect-uri: http://localhost:8080/login/oauth2/code/cognito
+            authorization-grant-type: authorization_code
+            clientName: commit-client
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+          cognito:
+            issuer-uri: https://cognito-idp.ap-northeast-2.amazonaws.com/ap-northeast-2_2qtl6ioip
+            user-name-attribute: cognito:email
+            token-uri: https://commit-test.auth.ap-northeast-2.amazoncognito.com/oauth2/token
+            jwk-set-uri: https://cognito-idp.ap-northeast-2.amazonaws.com/ap-northeast-2_2qtl6ioip/.well-known/jwks.json
+
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: 6379
+      password: ${REDIS_PASSWORD}
+      timeout: 7200000
+
+token:
+  expiration_time: 43200000
+  secret: ${TOKEN_SECRET}
+
+gocamping:
+  api:
+    base-url: http://apis.data.go.kr/B551011/GoCamping
+    encoding-key: Au%2FsJXmqYwNOJf1Wq3qbzEo6OzW4p5KALPI2%2FnvXgdZWHiHm5jTl2dMdr%2FR75gxHwTuOeH7pVCOUkUfg4c%2FkZQ%3D%3D
+    decoding-key: Au/sJXmqYwNOJf1Wq3qbzEo6OzW4p5KALPI2/nvXgdZWHiHm5jTl2dMdr/R75gxHwTuOeH7pVCOUkUfg4c/kZQ==
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
+
+elastic:
+  apm:
+    service_name: campus
+    server_url: http://3.39.111.18:8200
+    application_packages: com.commit.campus
