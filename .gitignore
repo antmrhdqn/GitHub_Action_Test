@@ -110,6 +110,9 @@ local.properties
 .gradle
 build/
 
+# Allow Gradle Wrapper jar file
+!gradle/wrapper/gradle-wrapper.jar
+
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
@@ -279,6 +282,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,intellij,java,macos,eclipse
-
-# Allow Gradle Wrapper jar file
-!gradle/wrapper/gradle-wrapper.jar
