@@ -42,7 +42,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "**/*.jar"
+          source: "build/libs/*.jar"
           target: "/home/ubuntu"
           debug: true
 
