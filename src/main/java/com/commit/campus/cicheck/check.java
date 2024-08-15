@@ -2,6 +2,6 @@ package com.commit.campus.cicheck;
 
 public class check {
     public void check() {
-        System.out.println("ㅋㅋ");
+        System.out.println("ㅋㅋㅋㅋ");
     }
 }
