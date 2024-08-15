@@ -280,8 +280,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,intellij,java,macos,eclipse
 
-# Ignore Gradle build output directory
-build
-
 # Allow Gradle Wrapper jar file
 !gradle/wrapper/gradle-wrapper.jar
